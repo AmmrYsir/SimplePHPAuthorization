@@ -4,7 +4,7 @@
     $title = 'Login Home';
     $style = '<link rel="stylesheet" href="../css/login.css">';
     $warning = '';
-    
+    $display = 'none';
 
 ?>
 
@@ -12,7 +12,7 @@
 <div class="container">
     <div class="container-head">
         <h1>Login Form</h1>
-        <div class="container-warning" style="<?= $display ?>;<?= $color ?>"> <?= $warning ?> </div>
+        <div class="container-warning" style="display:<?= $display ?>;<?= $color ?>"> <?= $warning ?> </div>
     </div>
     <form class="container-body" action="" method="POST">
         <div class="container-input">
