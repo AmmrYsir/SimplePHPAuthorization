@@ -1,9 +1,9 @@
 <?php 
     include 'includes/autoload.inc.php';
-    
-    $title = 'Login Home';
-    $style = '<link rel="stylesheet" href="../style/login.css">';
 
+    $title = 'Login Home';
+    $style = '<link rel="stylesheet" href="../css/login.css">';
+    $warning = '';
     
 
 ?>

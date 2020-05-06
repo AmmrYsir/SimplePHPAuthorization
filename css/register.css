@@ -4,6 +4,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100vh;
+    overflow: hidden;
 }
 
 .container {
@@ -61,7 +63,7 @@ body {
 .input input {
     padding: 15px;
     border: 1px solid #EDEFEF;
-    height: 50px;
+    height: 20px;
     font-size: 1.2rem;
     outline: none;
 }

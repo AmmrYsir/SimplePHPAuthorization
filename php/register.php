@@ -2,7 +2,7 @@
     include 'includes/autoload.inc.php';
 
     $title = 'Register Form';
-    $style = '<link rel="stylesheet" href="../style/register.css">';
+    $style = '<link rel="stylesheet" href="../css/register.css">';
 
     // !preg_match("/^[a-zA-Z0-9]*$/", $username)
 ?>
