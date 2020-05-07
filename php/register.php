@@ -1,7 +1,7 @@
 <?php
     include 'includes/autoload.inc.php';
 
-    static $red = 'color: rgb(255, 97, 97);';
+    static $red = 'background-color: rgb(255, 97, 97);';
     $title = 'Register Form';
     $style = '<link rel="stylesheet" href="../css/register.css">';
 
@@ -14,25 +14,31 @@
         $email = htmlspecialchars(strip_tags($_POST['email']));
 
         $user = new UserController();
-        if ($user->Register($username, $password, $repassword, $email) == 1) {
+        $result = $user->Register($username, $password, $repassword, $email);
+        
+        if ($result == 1) {
             $color = $red;
             $warning = 'Please enter requirement information below!';
         } 
-        else if ($user->Register($username, $password, $repassword, $email) == 2) {
+        else if ($result == 2) {
             $color = $red;
             $warning = 'The username already taken';
         } 
-        else if ($user->Register($username, $password, $repassword, $email) == 3) {
+        else if ($result == 3) {
             $color = $red;
             $warning = 'Both password is different';
         } 
-        else if ($user->Register($username, $password, $repassword, $email) == 4) {
+        else if ($result == 4) {
             $color = $red;
-            $warning = 'Email already been registered or your email was not valid';
+            $warning = 'This email already registered!';
         }
-        else {
+        else if ($result == 0) {
             $color = 'background-color: rgb(15, 167, 15);';
             $warning = 'You have register successfully';
+        }
+        else {
+            $color = $red;
+            $warning = 'There\'s something wrong with register system';
         }
     }
 ?>

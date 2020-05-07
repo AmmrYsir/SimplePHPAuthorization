@@ -9,6 +9,9 @@ spl_autoload_register(function($className) {
     
     foreach ($mvc as $folder) {
         $fullPath = $path . $folder . $className . $extension;
+        if(!file_exists($fullPath)) {
+            continue;
+        }
         require_once $fullPath;
     }
     
