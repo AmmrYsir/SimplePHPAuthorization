@@ -6,4 +6,8 @@ class UserController extends UserModel {
         return $this->createUser($username, $password, $repassword, $email);
     }
 
+    public function Login($username, $password) {
+        return $this->checkUser($username, $password);
+    }
+
 }
