@@ -20,11 +20,11 @@
         } 
         else if ($user->Register($username, $password, $repassword, $email) == 2) {
             $color = $red;
-            $warning = 'Please enter proper ';
+            $warning = 'The username already taken';
         } 
         else if ($user->Register($username, $password, $repassword, $email) == 3) {
-
-
+            $color = $red;
+            $warning = 'Please enter ';
         } 
         else if ($user->Register($username, $password, $repassword, $email) == 4) {
 
