@@ -3,7 +3,7 @@ Vanilla PHP project that contain User Registration/Login System with possible se
 
 # Simple UI
 
-### Register.php
+### Register.php Form
 ![Register](img/Register.JPG "Register Form")
 ### Login.php Form
 
