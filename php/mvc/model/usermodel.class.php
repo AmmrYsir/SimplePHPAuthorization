@@ -6,7 +6,7 @@ class UserModel extends Database {
         if(empty($username) || empty($password) || empty($repassword) || empty($email)) {
             return 1;
         }
-        else if (!preg_match("/^[a-zA-Z0-9]*$/", $username)) {
+        else if (checkUsername($username)) {
             return 2;
         }
         else if ($password !== $repassword){
@@ -21,6 +21,19 @@ class UserModel extends Database {
             $pdo->execute([uniqid(), $username, $password, $email]);
             return true;
         }
+    }
+
+    protected function checkUsername($username) {
+        $query = 'SELECT username FROM `usertable` WHERE username=?';
+        $pdo = $this->conn->connect()->prepare($query);
+        $pdo->execute([$username]);
+
+        while ($row = $pdo->fetch()) {
+            if ($row['username'] == $username) {
+                return false;
+            }
+        }
+        return true;
     }
 
 }

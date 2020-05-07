@@ -1,16 +1,37 @@
 <?php
     include 'includes/autoload.inc.php';
 
+    static $red = 'color: rgb(255, 97, 97);';
     $title = 'Register Form';
     $style = '<link rel="stylesheet" href="../css/register.css">';
-    
+
+
     if (isset($_POST['RegisterButton'])) {
+        $display = 'flex';
         $username = htmlspecialchars(strip_tags($_POST['username']));
         $password = htmlspecialchars(strip_tags($_POST['password']));
         $repassword = htmlspecialchars(strip_tags($_POST['repassword']));
         $email = htmlspecialchars(strip_tags($_POST['email']));
 
+        $user = new UserController();
+        if ($user->Register($username, $password, $repassword, $email) == 1) {
+            $color = $red;
+            $warning = 'Please enter requirement information below!';
+        } 
+        else if ($user->Register($username, $password, $repassword, $email) == 2) {
+            $color = $red;
+            $warning = 'Please enter proper ';
+        } 
+        else if ($user->Register($username, $password, $repassword, $email) == 3) {
 
+
+        } 
+        else if ($user->Register($username, $password, $repassword, $email) == 4) {
+
+        }
+        else {
+
+        }
     }
 ?>
 
