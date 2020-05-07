@@ -2,7 +2,7 @@
 
 class UserModel extends Database {
     
-    public function createUser($username, $password, $repassword, $email) {
+    protected function createUser($username, $password, $repassword, $email) {
         if(empty($username) || empty($password) || empty($repassword) || empty($email)) {
             return 1;
         }
