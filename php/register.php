@@ -3,8 +3,15 @@
 
     $title = 'Register Form';
     $style = '<link rel="stylesheet" href="../css/register.css">';
+    
+    if (isset($_POST['RegisterButton'])) {
+        $username = htmlspecialchars(strip_tags($_POST['username']));
+        $password = htmlspecialchars(strip_tags($_POST['password']));
+        $repassword = htmlspecialchars(strip_tags($_POST['repassword']));
+        $email = htmlspecialchars(strip_tags($_POST['email']));
 
-    // !preg_match("/^[a-zA-Z0-9]*$/", $username)
+
+    }
 ?>
 
 
