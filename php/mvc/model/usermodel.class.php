@@ -25,8 +25,8 @@ class UserModel extends Database {
     }
 
     protected function checkUser($username, $password) {
-        $query = 'SELECT * FROM `usertable` WHERE $username=?';
-        $pdo = $this->connect()->query($query);
+        $query = 'SELECT * FROM `usertable` WHERE username=?';
+        $pdo = $this->connect()->prepare($query);
         $pdo->execute([$username]);
 
         while($row = $pdo->fetch()) {

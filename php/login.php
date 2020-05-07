@@ -6,6 +6,24 @@
     $warning = '';
     $display = 'none';
 
+
+    if (isset($_POST['LoginButton'])) {
+        $display = 'flex';
+        $user = new UserController();
+
+        $username = htmlspecialchars(strip_tags($_POST['username']));
+        $password = htmlspecialchars(strip_tags($_POST['password']));
+
+        if($user->Login($username, $password)) {
+            $warning = 'You have login successfully';
+            $color = 'background-color: rgb(15, 167, 15);';
+        }
+        else {
+            $warning = 'Your username or password is incorrent!';
+            $color = 'background-color: rgb(255, 97, 97);';
+        }
+    }
+
 ?>
 
 <?php ob_start() ?>
