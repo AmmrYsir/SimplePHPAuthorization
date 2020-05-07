@@ -24,13 +24,15 @@
         } 
         else if ($user->Register($username, $password, $repassword, $email) == 3) {
             $color = $red;
-            $warning = 'Please enter ';
+            $warning = 'Both password is different';
         } 
         else if ($user->Register($username, $password, $repassword, $email) == 4) {
-
+            $color = $red;
+            $warning = 'Email already been registered or your email was not valid';
         }
         else {
-
+            $color = 'background-color: rgb(15, 167, 15);';
+            $warning = 'You have register successfully';
         }
     }
 ?>
