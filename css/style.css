@@ -1,4 +1,8 @@
 
+:root {
+    --bg-primary: rgb(43, 142, 255);
+}
+
 * {
     padding: 0;
     margin: 0;
