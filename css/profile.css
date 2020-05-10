@@ -1,5 +1,40 @@
 
 body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
     height: 100vh;
 }
 
+header {
+    height: 10vh;
+    background-color: var(--bg-primary);
+}
+
+header nav {
+    height: 100%;
+    color: white;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-brand {
+    padding-left: 1rem;
+    letter-spacing: .1rem;
+    font-weight: 200;
+}
+
+.navbar ul li {
+    font-weight: 700;
+    list-style:none;
+    padding: 1rem;
+    cursor: pointer;
+}
+
+.navbar ul li:hover {
+    color: rgb(255, 85, 85);
+}
