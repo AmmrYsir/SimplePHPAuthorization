@@ -18,7 +18,30 @@
         $user = new UserController();
         $result = $user->Register($username, $password, $repassword, $email);
         
-        
+        if ($result === 1) {
+            $warning = 'Please enter your account information below';
+            $color = $red;
+        }
+        else if ($result === 2) {
+            $warning = 'This username already exist';
+            $color = $red;
+        }
+        else if ($result === 3) {
+            $warning = 'Please recheck your password';
+            $color = $red;
+        }
+        else if ($result === 4) {
+            $warning = 'Please enter valid email address';
+            $color = $red;
+        }
+        else if ($result) {
+            $warning = 'You have register successfully';
+            $color = 'background-color: green';
+        }
+        else {
+            $warning = 'There\'s problem occured';
+            $color = $red;
+        }
         
     }
 ?>
