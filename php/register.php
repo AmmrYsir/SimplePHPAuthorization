@@ -14,32 +14,13 @@
         $email = htmlspecialchars(strip_tags($_POST['email']));
 
         $user = new UserController();
-        $result = $user->Register($username, $password, $repassword, $email);
+        if ($user->Register($username, $password, $repassword, $email)) {
+            if ($Empty) {
+                echo 'IT EMPTY!';
+            }
+        }
         
-        if ($result == 1) {
-            $color = $red;
-            $warning = 'Please enter requirement information below!';
-        } 
-        else if ($result == 2) {
-            $color = $red;
-            $warning = 'The username already taken';
-        } 
-        else if ($result == 3) {
-            $color = $red;
-            $warning = 'Both password is different';
-        } 
-        else if ($result == 4) {
-            $color = $red;
-            $warning = 'This email already registered!';
-        }
-        else if ($result == 0) {
-            $color = 'background-color: rgb(15, 167, 15);';
-            $warning = 'You have register successfully';
-        }
-        else {
-            $color = $red;
-            $warning = 'There\'s something wrong with register system';
-        }
+        
     }
 ?>
 

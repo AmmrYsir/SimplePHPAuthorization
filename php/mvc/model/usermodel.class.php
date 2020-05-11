@@ -3,25 +3,11 @@
 class UserModel extends Database {
     
     protected function createUser($username, $password, $repassword, $email) {
-        if(empty($username) || empty($password) || empty($repassword) || empty($email)) {
-            return 1;
-        }
-        else if ($this->checkUsernameValid($username) === false) {
-            return 2;
-        }
-        else if ($password !== $repassword){
-            return 3;
-        }
-        else if (filter_var($email, FILTER_VALIDATE_EMAIL) && $this->checkEmailValid($email) === false){
-            return 4;
-        }
-        else {
-            $passwordHashed = password_hash($password, PASSWORD_DEFAULT);
-            $query = 'INSERT INTO `usertable`(username,password,email) VALUES(?,?,?)';
-            $pdo = $this->connect()->prepare($query);
-            $pdo->execute([$username, $passwordHashed, $email]);
-            return 0;
-        }
+        $passwordHashed = password_hash($password, PASSWORD_DEFAULT);
+        $query = 'INSERT INTO `usertable`(username,password,email) VALUES(?,?,?)';
+        $pdo = $this->connect()->prepare($query);
+        $pdo->execute([$username, $passwordHashed, $email]);
+        return true;
     }
 
     protected function checkUser($username, $password) {
