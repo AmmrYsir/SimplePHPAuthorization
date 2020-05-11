@@ -22,7 +22,18 @@ class UserController extends UserModel {
     }
 
     public function Login($username, $password) {
-        return $this->checkUser($username, $password);
+        $pdo = $this->checkUser($username, $password);
+        while($row = $pdo->fetch()) {
+            if (password_verify($password, $row['password'])) {
+                session_start();
+                $_SESSION['id'] = $row['id'];
+                return true;
+            }
+        }
+        return false;
     }
 
+
+
+    
 }

@@ -14,15 +14,7 @@ class UserModel extends Database {
         $query = 'SELECT * FROM `usertable` WHERE username=?';
         $pdo = $this->connect()->prepare($query);
         $pdo->execute([$username]);
-
-        while($row = $pdo->fetch()) {
-            if (password_verify($password, $row['password'])) {
-                session_start();
-                $_SESSION['id'] = $row['id'];
-                return true;
-            }
-        }
-        return false;
+        return $pdo;
     }
 
 
