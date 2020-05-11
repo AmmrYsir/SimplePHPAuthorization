@@ -4,6 +4,8 @@
     static $red = 'background-color: rgb(255, 97, 97);';
     $title = 'Register Form';
     $style = '<link rel="stylesheet" href="../css/register.css">';
+    $warning = '';
+    $display = 'none';
 
 
     if (isset($_POST['RegisterButton'])) {
@@ -14,11 +16,8 @@
         $email = htmlspecialchars(strip_tags($_POST['email']));
 
         $user = new UserController();
-        if ($user->Register($username, $password, $repassword, $email)) {
-            if ($Empty) {
-                echo 'IT EMPTY!';
-            }
-        }
+        $result = $user->Register($username, $password, $repassword, $email);
+        
         
         
     }

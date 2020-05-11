@@ -4,16 +4,16 @@ class UserController extends UserModel {
     
     public function Register($username, $password, $repassword, $email) {
         if(empty($username) || empty($password) || empty($repassword) || empty($email)) {
-            $Empty = true;
+            return 1;
         }
         else if ($this->checkUsernameValid($username) === false) {
-            $usernameNoValid = true;
+            return 2;
         }
         else if ($password !== $repassword){
-            $passwordRepeatNoValid = true;
+            return 3;
         }
         else if (filter_var($email, FILTER_VALIDATE_EMAIL) && $this->checkEmailValid($email) === false){
-            $emailNoValid = true;
+            return 4;
         }
         else {
             $this->createUser($username, $password, $repassword, $email);

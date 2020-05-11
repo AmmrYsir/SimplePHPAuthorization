@@ -63,7 +63,7 @@ body {
 .input input {
     padding: 15px;
     border: 1px solid #EDEFEF;
-    height: 20px;
+    height: 45px;
     font-size: 1.2rem;
     outline: none;
 }
