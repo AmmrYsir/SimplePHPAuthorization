@@ -4,7 +4,7 @@ Vanilla PHP project that contain User Registration/Login System with possible se
 # Simple UI
 
 ### Register.php Form
-![Register](img/Register.JPG "Register Form")
+![Register](src/img/Register.JPG "Register Form")
 ### Login.php Form
 
-![Login](img/Login.JPG "Login Form")
+![Login](src/img/Login.JPG "Login Form")
